@@ -1,11 +1,13 @@
 package com.keilambda.demo.api;
 
+import com.keilambda.demo.infra.Book;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import lombok.AllArgsConstructor;
 
-import com.keilambda.demo.infra.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -41,9 +43,7 @@ public class BookController {
 
     @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Adds a new book to the library")
-    public @ResponseBody Book add(
-            @RequestBody
-            Book b) {
+    public @ResponseBody Book add(@RequestBody Book b) {
         return service.add(b);
     }
 

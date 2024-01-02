@@ -2,7 +2,9 @@ package com.keilambda.demo.api;
 
 import com.keilambda.demo.infra.Book;
 import com.keilambda.demo.infra.BookRepo;
+
 import lombok.AllArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ import java.util.stream.StreamSupport;
 @Service
 public class BookServiceImpl implements BookService {
     @Autowired
-    BookRepo repo;
+    private BookRepo repo;
 
     @Override
     public List<Book> getAll() {
