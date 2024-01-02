@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @AllArgsConstructor
 @Service
@@ -21,8 +19,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAll() {
-        return StreamSupport.stream(repo.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+        return repo.findAll();
     }
 
     @Override
